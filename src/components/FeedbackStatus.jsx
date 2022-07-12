@@ -1,7 +1,9 @@
-import React from 'react'
+import {useContext} from 'react'
+import FeedbackContext from '../context/FeedbackContext';
 
-function FeedbackStatus({feedback}) {
-  
+function FeedbackStatus() {
+    
+    const {feedback}=useContext(FeedbackContext)
     const getAVG=(array)=>{
 
         var tot=0;
@@ -10,7 +12,7 @@ function FeedbackStatus({feedback}) {
             tot+=element.rating
         });
 
-        console.log(tot)
+        
 
         return tot/array.length
 

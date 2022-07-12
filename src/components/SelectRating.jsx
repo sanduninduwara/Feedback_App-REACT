@@ -1,12 +1,12 @@
 import {useState} from 'react'
 
-const SelectRating = ({select}) => {
+const SelectRating = ({select,selected}) => {
 
-    const [selected,setSelected]=useState(10);
+    // const [selected,setSelected]=useState(10);
 
     const handleChange=(e)=>{
         var value=+e.currentTarget.value // + means get int from str
-        setSelected(value)
+        // setSelected(value)
         select(value)
     }
 

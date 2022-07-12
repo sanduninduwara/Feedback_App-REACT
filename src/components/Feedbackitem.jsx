@@ -1,9 +1,10 @@
 
-import {useState} from 'react';
+import {useContext} from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 import Card from './shared/Card';
-import {FaTimes} from 'react-icons/fa'
+import {FaTimes , FaEdit} from 'react-icons/fa'
 
-function Feedbackitem({item , closeItem}) {
+function Feedbackitem({item }) {
 
 
     // const [rating, setRating]=useState(item.rating);
@@ -15,6 +16,7 @@ function Feedbackitem({item , closeItem}) {
     //         return pre+1;
     //     })
     // }
+    const{delItem ,editFeedback}=useContext(FeedbackContext);
 
 
 
@@ -22,7 +24,9 @@ function Feedbackitem({item , closeItem}) {
     <Card reverse={true}>
         <div className='num-display'>{item.rating} </div>
 
-        <button className='close' onClick={()=>closeItem(item.id)}><FaTimes color='red'></FaTimes></button>
+        <button className='close' onClick={()=>delItem(item.id)}><FaTimes color='red'></FaTimes></button>
+
+        <button className='edit' onClick={()=>editFeedback(item)}><FaEdit color='red'></FaEdit></button>
 
         <div className='text-display'>{item.text}</div>
 
